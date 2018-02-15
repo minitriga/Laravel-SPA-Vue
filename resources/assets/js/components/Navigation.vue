@@ -1,0 +1,59 @@
+<template>
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <router-link :to="{ name: 'home'}" class="navbar-brand">
+                    Laravel SPA
+                </router-link>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto" v-if="!user.authenticated">
+                        <li><router-link :to="{ name: 'login'}" class="nav-link">Login</router-link></li>
+                        <li><router-link :to="{ name: 'register'}" class="nav-link">Register</router-link></li>
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto" v-if="user.authenticated">
+                        <!-- Authentication Links -->
+                            <li><router-link :to="{ name: 'register'}" class="nav-link">Testing</router-link></li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ user.data.name }} <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="#" method="POST" style="display: none;">
+                                        
+                                    </form>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</template>
+
+<script>
+    import { mapGetters } from 'vuex'
+
+    export default {
+        computed: mapGetters({
+            user: 'auth/user'
+        })
+    }
+</script>
+
+
