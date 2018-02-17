@@ -73,9 +73,11 @@
 
 <script>
     import { mapActions } from 'vuex'
+    import localforage from 'localforage'
+    import { isEmpty } from 'lodash'
 
     export default {
-        data() {
+        data () {
             return {
                 email: null,
                 password: null,
@@ -94,9 +96,16 @@
                     },
                     context: this
                 }).then(() => {
-                    this.$router.replace({ name: 'home' })
+                    localforage.getItem('intended').then((name) => {
+                        if (isEmpty(name)) {
+                            this.$router.replace({ name: 'home' })
+                            return
+                        }
+
+                        this.$router.replace({ name: name })
+                    })
                 })
             }
-        }   
+        }
     }
 </script>

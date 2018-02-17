@@ -92,7 +92,7 @@
                     context: this
                 }).then(() => {
                     this.$router.replace({ name: 'home' })
-                })
+                }).catch(errors => this.errors = errors)
             }
         }
     }
