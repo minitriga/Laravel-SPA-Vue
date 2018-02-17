@@ -54763,7 +54763,8 @@ if (false) {
 
 /* harmony default export */ __webpack_exports__["a"] = ([{
     path: '*',
-    components: __WEBPACK_IMPORTED_MODULE_0__components__["a" /* NotFound */]
+    component: __WEBPACK_IMPORTED_MODULE_0__components__["a" /* NotFound */],
+    name: '404'
 }]);
 
 /***/ }),
@@ -54833,9 +54834,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("p", [_vm._v("404")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("p", [_vm._v("404")])])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

@@ -1,9 +1,9 @@
 import { NotFound } from '../components'
 
-export default 
-[
-   {
-       path: '*',
-       components: NotFound
-   } 
+export default [
+    {
+        path: '*',
+        component: NotFound,
+        name: '404'
+    }
 ]
